@@ -1,0 +1,3 @@
+Ticker Service
+
+Using Spring Boot: ${spring-boot.version}

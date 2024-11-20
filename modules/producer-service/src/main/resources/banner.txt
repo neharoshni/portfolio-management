@@ -1,0 +1,3 @@
+Producer Service
+
+Using Spring Boot: ${spring-boot.version}
