@@ -152,7 +152,7 @@ services:
     # deploy:
     #   mode: replicated
     #   replicas: 1
-    restart: no # # This ensures the container does not restart after completion
+    restart: "no" # # This ensures the container does not restart after completion
 
   tempo:
     image: grafana/tempo
