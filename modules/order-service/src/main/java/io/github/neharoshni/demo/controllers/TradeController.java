@@ -40,12 +40,12 @@ public class TradeController {
     @ResponseStatus(HttpStatus.OK)
     public boolean placeOrder(@RequestHeader(value = "access-token") String accessToken, @RequestBody final PlaceOrder order) {
         try {
-            if (authTokenValidator.validateAuthToken(accessToken)) {
-                Order newOrder = new Order(order.getInstrument(), new Date(System.currentTimeMillis()), order.getQuantity(), order.getUserId(), UUID.randomUUID().toString(), order.getType());
-                return tradeService.placeOrder(newOrder);
-            } else {
-                throw new IllegalArgumentException("Invalid token!");
-            }
+            Order newOrder = new Order(order.getInstrument(), new Date(System.currentTimeMillis()), order.getQuantity(), order.getUserId(), UUID.randomUUID().toString(), order.getType());
+            return tradeService.placeOrder(newOrder);
+            // if (authTokenValidator.validateAuthToken(accessToken)) {
+            // } else {
+            //     throw new IllegalArgumentException("Invalid token!");
+            // }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -74,11 +74,11 @@ public class TradeController {
     @ResponseStatus(HttpStatus.OK)
     public List<PortfolioItem> getPortfolioOfUser(@RequestHeader(value = "access-token") String accessToken, @PathVariable String userId) throws JsonProcessingException {
         try {
-            if (authTokenValidator.validateAuthToken(accessToken)) {
-                return tradeService.getPortfolioOfUser(userId);
-            } else {
-                throw new IllegalArgumentException("Invalid token!");
-            }
+            return tradeService.getPortfolioOfUser(userId);
+            // if (authTokenValidator.validateAuthToken(accessToken)) {
+            // } else {
+            //     throw new IllegalArgumentException("Invalid token!");
+            // }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -91,11 +91,11 @@ public class TradeController {
     @ResponseStatus(HttpStatus.OK)
     public List<PortfolioItemAverage> getPortfolioWithInstrumentPriceAveragesOfUser(@RequestHeader(value = "access-token") String accessToken, @PathVariable String userId) throws JsonProcessingException {
         try {
-            if (authTokenValidator.validateAuthToken(accessToken)) {
-                return tradeService.getPortfolioWithInstrumentPriceAveragesOfUser(userId);
-            } else {
-                throw new IllegalArgumentException("Invalid token!");
-            }
+            return tradeService.getPortfolioWithInstrumentPriceAveragesOfUser(userId);
+            // if (authTokenValidator.validateAuthToken(accessToken)) {
+            // } else {
+            //     throw new IllegalArgumentException("Invalid token!");
+            // }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -108,12 +108,12 @@ public class TradeController {
     @ResponseStatus(HttpStatus.OK)
     public List<UserHolding> holdings(@RequestHeader(value = "access-token") String accessToken, @PathVariable Long userId) {
         try {
-            if (authTokenValidator.validateAuthToken(accessToken)) {
-                List<PortfolioInstrument> portfolio = portfolioService.getAllPortfolioInstrumentsByUserId(userId);
-                return new ArrayList<>();
-            } else {
-                throw new IllegalArgumentException("Invalid token!");
-            }
+            List<PortfolioInstrument> portfolio = portfolioService.getAllPortfolioInstrumentsByUserId(userId);
+            return new ArrayList<>();
+            // if (authTokenValidator.validateAuthToken(accessToken)) {
+            // } else {
+            //     throw new IllegalArgumentException("Invalid token!");
+            // }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

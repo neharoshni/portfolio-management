@@ -111,10 +111,10 @@ function checkLogin(response) {
 }
 
 function get_ticker_data() {
-    let url = "/api/instrument/stocks";
+    let url = "http://localhost:9902/api/instrument/stocks";
     fetch(url, {
         "headers": {
-            "Authorization": `Bearer ${window.keycloak.token}`,
+            "access-token": `Bearer ${window.keycloak.token}`,
             "accept": "*/*", "sec-fetch-site": "same-origin", "sec-fetch-dest": "empty", "sec-gpc": "1",
         },
         "body": null,
@@ -141,10 +141,10 @@ function get_ticker_data() {
 }
 
 function get_indices_data() {
-    let url = "/api/instrument/indices";
+    let url = "http://localhost:9902/api/instrument/stocks";
     fetch(url, {
         "headers": {
-            "accept": "*/*", "sec-fetch-site": "same-origin", "sec-fetch-dest": "empty", "sec-gpc": "1",
+             "access-token": "foo", "accept": "*/*", "sec-fetch-site": "same-origin", "sec-fetch-dest": "empty", "sec-gpc": "1",
         },
         "body": null,
         "method": "GET",

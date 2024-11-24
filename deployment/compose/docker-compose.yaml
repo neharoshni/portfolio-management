@@ -144,6 +144,16 @@ services:
       - 3000:3000
     restart: unless-stopped
 
+  tempo-init:
+    image: alpine
+    command: [ 'sh', '-c', 'mkdir -p /tmp/tempo/blocks && chmod -R 777 /tmp/tempo' ]
+    volumes:
+      - tempo:/tmp/tempo
+    # deploy:
+    #   mode: replicated
+    #   replicas: 1
+    restart: no # # This ensures the container does not restart after completion
+
   tempo:
     image: grafana/tempo
     extra_hosts: [ 'host.docker.internal:host-gateway' ]

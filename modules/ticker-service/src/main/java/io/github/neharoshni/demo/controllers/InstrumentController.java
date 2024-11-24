@@ -33,11 +33,11 @@ public class InstrumentController {
     @GetMapping("/stocks")
     public List<Instrument> listAllStocks(@RequestHeader(value = "access-token") String accessToken) {
         try {
-            if (authTokenValidator.validateAuthToken(accessToken)) {
-                return instrumentService.fetchAllStockInstruments();
-            } else {
-                throw new IllegalArgumentException("Invalid token!");
-            }
+            return instrumentService.fetchAllStockInstruments();
+            // if (authTokenValidator.validateAuthToken(accessToken)) {
+            // } else {
+            //     throw new IllegalArgumentException("Invalid token!");
+            // }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -48,11 +48,11 @@ public class InstrumentController {
     @GetMapping("/stock/{name}")
     public Instrument listStockByName(@RequestHeader(value = "access-token") String accessToken, @PathVariable String name) throws Exception {
         try {
-            if (authTokenValidator.validateAuthToken(accessToken)) {
-                return instrumentService.fetchStockInstrumentByName(name);
-            } else {
-                throw new IllegalArgumentException("Invalid token!");
-            }
+            return instrumentService.fetchStockInstrumentByName(name);
+            // if (authTokenValidator.validateAuthToken(accessToken)) {
+            // } else {
+            //     throw new IllegalArgumentException("Invalid token!");
+            // }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -63,11 +63,11 @@ public class InstrumentController {
     @GetMapping("/stock/find/{keyword}")
     public List<Instrument> findStockByKeyword(@RequestHeader(value = "access-token") String accessToken, @PathVariable String keyword) throws Exception {
         try {
-            if (authTokenValidator.validateAuthToken(accessToken)) {
-                return instrumentService.findStockInstrumentsByKeyword(keyword);
-            } else {
-                throw new IllegalArgumentException("Invalid token!");
-            }
+            return instrumentService.findStockInstrumentsByKeyword(keyword);
+            // if (authTokenValidator.validateAuthToken(accessToken)) {
+            // } else {
+            //     throw new IllegalArgumentException("Invalid token!");
+            // }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

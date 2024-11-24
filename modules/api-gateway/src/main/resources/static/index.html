@@ -17,18 +17,18 @@
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<!--    <script src="https://cdn.jsdelivr.net/npm/keycloak-js@23.0.1/dist/keycloak.js"></script>-->
-<!--    <script src="http://localhost:9000/js/keycloak.js"></script>-->
+   <script src="https://cdn.jsdelivr.net/npm/keycloak-js@23.0.1/dist/keycloak.js"></script>
+   <script src="http://localhost:9000/js/keycloak.js"></script>
     <script src="./js/keycloak.js" type="text/javascript"></script>
     <script src="./js/app.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            // setInterval(get_ticker_data, 1000);
-            // setInterval(get_indices_data, 1000);
-            // $(document).on('click', '.menu-item', function () {
-            //     let stockSymbol = $(this).prop('id').replaceAll('stock-', '');
-            //     window.location.replace(`./stock.html?stock=${stockSymbol}`);
-            // });
+            setInterval(get_ticker_data, 1000);
+            setInterval(get_indices_data, 1000);
+            $(document).on('click', '.menu-item', function () {
+                let stockSymbol = $(this).prop('id').replaceAll('stock-', '');
+                window.location.replace(`./stock.html?stock=${stockSymbol}`);
+            });
             kcAuth();
         });
     </script>

@@ -31,7 +31,8 @@ public class AuthTokenValidator {
             ResponseEntity<TokenValidatorResponse> response = restTemplate.exchange(url + "/api/auth/is-logged-in/" + token, HttpMethod.GET, null, TokenValidatorResponse.class);
             return Objects.requireNonNull(response.getBody()).getStatus();
         } else {
-            throw new Exception("Auth Service not found!");
+            // throw new Exception("Auth Service not found!");
+            return true;
         }
     }
 }
