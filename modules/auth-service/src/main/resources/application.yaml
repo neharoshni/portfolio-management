@@ -81,9 +81,9 @@ spring:
         url: ${SPRING_ADMIN_HOST:http://localhost:9800}
   datasource:
     driver-class-name: org.postgresql.Driver
-    password: root
+    password: adminpassword
     url: jdbc:postgresql://${INFRA_POSTGRES_HOST:localhost}:${INFRA_POSTGRES_PORT:5432}/stocks
-    username: root
+    username: postgres
   jpa:
     hibernate:
       ddl-auto: update

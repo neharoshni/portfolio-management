@@ -71,9 +71,9 @@ spring:
         url: http://localhost:9800
   datasource:
     driver-class-name: org.postgresql.Driver
-    password: root
+    password: adminpassword
     url: jdbc:postgresql://${INFRA_POSTGRES_HOST:localhost}:${INFRA_POSTGRES_PORT:5432}/stocks
-    username: root
+    username: postgres
   datasource-batch:
     driver-class-name: org.h2.Driver
     initialization-mode: always

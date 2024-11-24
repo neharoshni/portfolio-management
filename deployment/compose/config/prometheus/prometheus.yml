@@ -20,3 +20,13 @@ scrape_configs:
             - "kafka-svc:1234"
           labels:
             env: "dev"
+    - job_name: "pg-0"
+      static_configs:
+        - targets: ["pg-exp-1:9187"]
+          labels:
+            node: "pg-0"
+    - job_name: "pg-1"
+      static_configs:
+        - targets: ["pg-exp-2:9187"]
+          labels:
+            node: "pg-1"

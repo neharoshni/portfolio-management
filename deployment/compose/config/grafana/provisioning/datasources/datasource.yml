@@ -60,13 +60,29 @@ datasources:
           matcherRegex: '.+ --- \[.+\] \[.+\] \[(\w*)-\w*\] .+'
           name: traceId
           url: $${__value.raw}
-  - name: Postgres
+  - name: PG-0
     type: postgres
-    uid: postgres
-    url: postgres:5432
-    user: root
+    uid: pg0
+    url: pg-0:5432
+    user: postgres
     secureJsonData:
-      password: 'root'
+      password: 'adminpassword'
+    jsonData:
+      database: stocks
+      sslmode: 'disable' # disable/require/verify-ca/verify-full
+      maxOpenConns: 100 # Grafana v5.4+
+      maxIdleConns: 100 # Grafana v5.4+
+      maxIdleConnsAuto: true # Grafana v9.5.1+
+      connMaxLifetime: 14400 # Grafana v5.4+
+      postgresVersion: 903 # 903=9.3, 904=9.4, 905=9.5, 906=9.6, 1000=10
+      timescaledb: false
+  - name: PG-1
+    type: postgres
+    uid: pg1
+    url: pg-1:5432
+    user: postgres
+    secureJsonData:
+      password: 'adminpassword'
     jsonData:
       database: stocks
       sslmode: 'disable' # disable/require/verify-ca/verify-full
